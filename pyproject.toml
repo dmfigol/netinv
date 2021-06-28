@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "warehouse"
+version = "0.1.0"
+description = "Network inventory with async connection support"
+authors = ["Dmitry Figol <git@dmfigol.me>"]
+
+readme = "README.md"
+homepage = "https://github.com/dmfigol/warehouse"
+repository = "https://github.com/dmfigol/warehouse"
+keywords = ["warehouse", "network inventory", "network automation", "inventory"]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Intended Audience :: Developers",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.6.1,<4.0"
+pydantic = ">=1.0.0"
+
+[tool.poetry.dev-dependencies]
+bpython = "*"
+mypy = "*"
+flake8 = "*"
+flake8-bugbear = "*"
+pdbpp = "*"
+black = "*"
+isort = "*"
+types-setuptools = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.6"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_untyped_calls = true
+ignore_errors = false
+ignore_missing_imports = true
+strict_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_return_any = true
+warn_no_return = true
+warn_unreachable = true
