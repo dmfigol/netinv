@@ -1,0 +1,65 @@
+version: '3'
+
+vars:
+  CODE_DIRS: src/ tests/
+
+tasks:
+  update:
+    cmds:
+      - poetry update
+
+  build:
+    cmds:
+      - poetry build
+
+  publish:
+    cmds:
+      - poetry publish --build -u __token__ -p ${PYPI_TOKEN}
+
+  pytest:
+    cmds:
+      - poetry run pytest tests
+
+  mypy:
+    cmds:
+      - poetry run mypy {{.CODE_DIRS}}
+
+  black:
+    cmds:
+      - poetry run black {{.CODE_DIRS}}
+
+  black-check:
+    cmds:
+      - poetry run black {{.CODE_DIRS}} --check
+
+  flake8:
+    cmds:
+      - poetry run flake8 {{.CODE_DIRS}}
+
+  static-analysis:
+    cmds:
+      - task: black-check
+      - task: flake8
+      - task: mypy
+
+  build-docs:
+    cmds:
+      - poetry run mkdocs build --clean --strict
+
+  test-docs-urls:
+    cmds:
+      - PATH=$PATH:. command -v htmltest >/dev/null 2>&1 || { curl https://htmltest.wjdp.uk | bash -s -- -b .; }
+      - PATH=$PATH:. htmltest -c docs/htmltest.yml
+
+  test-docs:
+    cmds:
+      - task: build-docs
+      - task: test-docs-urls
+
+
+  test-suite:
+    cmds:
+      - task: lint
+      - task: pytest
+      - task: test-docs
+

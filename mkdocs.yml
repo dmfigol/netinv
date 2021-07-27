@@ -1,0 +1,34 @@
+site_name: NetInv
+
+site_description: Network Inventory with async support
+site_author: Dmitry Figol
+
+repo_name: dmfigol/netinv
+repo_url: https://github.com/dmfigol/netinv
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: indigo
+
+nav:
+  - NetInv: index.md
+  - Tutorial:
+    - Quick Start: tutorial/quickstart.md
+  - Changelog: changelog.md
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/dmfigol'
+    - icon: fontawesome/brands/twitter
+      link: 'https://twitter.com/dmfigol'
+    - icon: fontawesome/brands/linkedin
+      link: 'https://www.linkedin.com/in/dmfigol'
+    - icon: fontawesome/solid/feather-alt
+      link: 'https://dmfigol.me'
+
+plugins:
+    - search

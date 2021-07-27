@@ -1,0 +1,42 @@
+---
+name: Test Suite
+
+on: [push, pull_request]
+
+jobs:
+  tests:
+    name: "Python ${{ matrix.python-version }}"
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10.0-beta.4"]
+        task: ["static-analysis", "pytest"]
+        # include:
+        #   - python-version: 3.9
+        #     task: "test-docs"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: "actions/setup-python@v2"
+        with:
+          python-version: "${{ matrix.python-version }}"
+      - name: "Install Task"
+        uses: "arduino/setup-task@v1"
+      - name: "Install Poetry"
+        uses: "snok/install-poetry@v1"
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      - name: "Load cached venv"
+        id: "cached-poetry-dependencies"
+        uses: "actions/cache@v2"
+        with:
+          path: ".venv"
+          key: "venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}"
+      - name: "Install dependencies"
+        if: "steps.cached-poetry-dependencies.outputs.cache-hit != 'true'"
+        run: "poetry install --no-interaction --no-root"
+      - name: "Install library"
+        run: "poetry install --no-interaction"
+      - name: "Run tests"
+        run: "task test-suite"

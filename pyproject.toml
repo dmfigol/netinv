@@ -1,28 +1,31 @@
 [tool.poetry]
-name = "warehouse"
-version = "0.1.0"
+name = "netinv"
+version = "0.1.1"
 description = "Network inventory with async connection support"
 authors = ["Dmitry Figol <git@dmfigol.me>"]
 
 readme = "README.md"
-homepage = "https://github.com/dmfigol/warehouse"
-repository = "https://github.com/dmfigol/warehouse"
-keywords = ["warehouse", "network inventory", "network automation", "inventory"]
+homepage = "https://github.com/dmfigol/netinv"
+repository = "https://github.com/dmfigol/netinv"
+keywords = ["netinv", "network inventory", "network automation", "inventory"]
 
 classifiers = [
     "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.6.1,<4.0"
-pydantic = ">=1.0.0"
+python = "^3.6.2"
+pydantic = "^1"
 
 [tool.poetry.dev-dependencies]
 bpython = "*"
@@ -33,6 +36,8 @@ pdbpp = "*"
 black = "*"
 isort = "*"
 types-setuptools = "*"
+pytest = "*"
+mkdocs-material = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

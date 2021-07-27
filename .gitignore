@@ -108,3 +108,4 @@ venv.bak/
 settings.toml
 pip-wheel-metadata/
 .vscode/
+tmp/
