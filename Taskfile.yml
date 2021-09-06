@@ -60,7 +60,6 @@ tasks:
       - task: build-docs
       - task: test-docs
 
-
   test-suite:
     cmds:
       - task: static-analysis

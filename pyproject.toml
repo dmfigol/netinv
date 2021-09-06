@@ -5,7 +5,7 @@ description = "Network inventory with async connection support"
 authors = ["Dmitry Figol <git@dmfigol.me>"]
 
 readme = "README.md"
-homepage = "https://github.com/dmfigol/netinv"
+homepage = "https://dmfigol.github.io/netinv"
 repository = "https://github.com/dmfigol/netinv"
 keywords = ["netinv", "network inventory", "network automation", "inventory"]
 
