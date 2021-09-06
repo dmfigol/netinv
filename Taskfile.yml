@@ -46,20 +46,22 @@ tasks:
     cmds:
       - poetry run mkdocs build --clean --strict
 
-  test-docs-urls:
+  publish-docs:
+    cmds:
+      - poetry run mkdocs gh-deploy
+
+  test-docs:
     cmds:
       - PATH=$PATH:. command -v htmltest >/dev/null 2>&1 || { curl https://htmltest.wjdp.uk | bash -s -- -b .; }
       - PATH=$PATH:. htmltest -c docs/htmltest.yml
 
-  test-docs:
+  build-test-docs:
     cmds:
       - task: build-docs
-      - task: test-docs-urls
+      - task: test-docs
 
 
   test-suite:
     cmds:
-      - task: lint
+      - task: static-analysis
       - task: pytest
-      - task: test-docs
-
