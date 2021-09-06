@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "netinv"
-version = "0.1.1"
+version = "0.2.0"
 description = "Network inventory with async connection support"
 authors = ["Dmitry Figol <git@dmfigol.me>"]
 
 readme = "README.md"
-homepage = "https://github.com/dmfigol/netinv"
+homepage = "https://dmfigol.github.io/netinv"
 repository = "https://github.com/dmfigol/netinv"
 keywords = ["netinv", "network inventory", "network automation", "inventory"]
 
@@ -24,7 +24,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6.2"
+python = "^3.6.1"
 pydantic = "^1"
 
 [tool.poetry.dev-dependencies]
@@ -33,7 +33,7 @@ mypy = "*"
 flake8 = "*"
 flake8-bugbear = "*"
 pdbpp = "*"
-black = "*"
+black = {version = "*", allow-prereleases = true}
 isort = "*"
 types-setuptools = "*"
 pytest = "*"

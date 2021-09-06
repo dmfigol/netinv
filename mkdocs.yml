@@ -1,10 +1,10 @@
 site_name: NetInv
-
 site_description: Network Inventory with async support
 site_author: Dmitry Figol
 
 repo_name: dmfigol/netinv
 repo_url: https://github.com/dmfigol/netinv
+edit_uri: ''
 
 theme:
   name: material
@@ -27,8 +27,8 @@ extra:
       link: 'https://twitter.com/dmfigol'
     - icon: fontawesome/brands/linkedin
       link: 'https://www.linkedin.com/in/dmfigol'
-    - icon: fontawesome/solid/feather-alt
-      link: 'https://dmfigol.me'
+    # - icon: fontawesome/solid/feather-alt
+    #   link: 'https://dmfigol.me'
 
 plugins:
     - search

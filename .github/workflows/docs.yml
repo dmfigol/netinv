@@ -1,25 +1,20 @@
 ---
 name: Test Suite
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  tests:
-    name: "Python ${{ matrix.python-version }}"
+  docs:
+    name: "Build and test docs"
     runs-on: "ubuntu-latest"
-
-    strategy:
-      matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9"]
-        task: ["static-analysis", "pytest"]
-        include:
-          - python-version: 3.6
-            task: "build-test-docs"
     steps:
       - uses: "actions/checkout@v2"
       - uses: "actions/setup-python@v2"
         with:
-          python-version: "${{ matrix.python-version }}"
+          python-version: "3.6"
       - name: "Install Task"
         uses: "arduino/setup-task@v1"
       - name: "Install Poetry"
@@ -38,4 +33,7 @@ jobs:
         run: "poetry install --no-interaction --no-root"
       - name: "Install library"
         run: "poetry install --no-interaction"
-      - run: "task ${{ matrix.task }}"
+      - name: "Build docs"
+        run: "task build-docs"
+      - name: "Publish docs"
+        run: "task publish-docs"
