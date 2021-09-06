@@ -35,7 +35,5 @@ jobs:
         run: "poetry install --no-interaction"
       - name: "Build docs"
         run: "task build-docs"
-      - name: "Test docs"
-        run: "task test-docs"
       - name: "Publish docs"
         run: "task publish-docs"
