@@ -10,11 +10,11 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9"]
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10rc1"]
         task: ["static-analysis", "pytest"]
         include:
           - python-version: 3.6
-            task: "test-docs"
+            task: "build-test-docs"
     steps:
       - uses: "actions/checkout@v2"
       - uses: "actions/setup-python@v2"
@@ -38,5 +38,4 @@ jobs:
         run: "poetry install --no-interaction --no-root"
       - name: "Install library"
         run: "poetry install --no-interaction"
-      - name: "Run tests"
-        run: "task ${{ matrix.task }}"
+      - run: "task ${{ matrix.task }}"
