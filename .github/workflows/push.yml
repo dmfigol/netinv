@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10rc1"]
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10.0-rc.1"]
         task: ["static-analysis", "pytest"]
         include:
           - python-version: 3.6
