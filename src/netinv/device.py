@@ -1,4 +1,4 @@
-from typing import Optional, Set, Dict
+from typing import Set, Dict
 from pydantic import BaseModel, Field
 from pydantic.types import OptionalInt, NoneStr
 
