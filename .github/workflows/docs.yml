@@ -1,5 +1,5 @@
 ---
-name: Test Suite
+name: Docs
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   docs:
-    name: "Build and test docs"
+    name: "Docs"
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v2"

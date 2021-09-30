@@ -48,7 +48,7 @@ tasks:
 
   publish-docs:
     cmds:
-      - poetry run mkdocs gh-deploy
+      - poetry run mkdocs gh-deploy --force
 
   test-docs:
     cmds:
